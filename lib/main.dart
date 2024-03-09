@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isami_app/home_screen/home-screen.dart';
+import 'package:isami_app/mytheme.dart';
 
 
 void main() {
@@ -11,8 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
-      home:HomeScreen(),
+    return   MaterialApp(
+      home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      theme:MyTheme.lightMode ,
+
     );
   }
 }
