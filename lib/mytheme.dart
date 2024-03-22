@@ -14,7 +14,19 @@ static Color primaryLight =  const Color(0xffB7935F);
     fontSize: 30,
     fontWeight: FontWeight.bold,
 
-   )
+   ),
+    titleMedium:  TextStyle(
+      fontSize: 25,
+      fontWeight: FontWeight.w400
+      ,
+
+    ),
+    titleSmall:  TextStyle(
+      fontSize:20,
+      fontWeight: FontWeight.bold,
+
+    ),
+
   ),
    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
      selectedItemColor: Colors.black,
