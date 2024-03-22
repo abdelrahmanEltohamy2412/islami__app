@@ -6,7 +6,7 @@ import 'package:isami_app/home_screen/sebha_tab/sebha_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
+  static const String routName = 'home_screen';
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
