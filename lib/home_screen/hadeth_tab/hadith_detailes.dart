@@ -4,7 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:isami_app/home_screen/hadeth_tab/hadeth_tab.dart';
 import 'package:isami_app/home_screen/hadeth_tab/itemHadithDetaiilsscren.dart';
 import 'package:isami_app/mytheme.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/app_config_provider.dart';
 import '../quran_tab/itemsuradetaiilsscren.dart';
 
 
@@ -22,6 +24,7 @@ class _HadithDetailsState extends State<HadithDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     var args = ModalRoute
         .of(context)
         ?.settings
@@ -30,6 +33,12 @@ class _HadithDetailsState extends State<HadithDetails> {
 
     return
       Stack(children: [
+        provider.isDarkMode()? Image.asset(
+          'assets/images/darkbackGround.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.fill,
+        ):
         Image.asset(
           'assets/images/background.png',
           width: double.infinity,
@@ -61,7 +70,8 @@ class _HadithDetailsState extends State<HadithDetails> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25),
-                color: Colors.white
+                color:  provider.isDarkMode()?
+                MyTheme.primaryDark:Colors.white,
             ),
             child: ListView.builder(
               itemBuilder: (context, index) {

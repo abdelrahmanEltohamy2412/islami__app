@@ -23,7 +23,8 @@ class _sebhaTapState extends State<sebhaTap> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body: Column(children: [
+      body: Column(
+        children: [
         Expanded(flex: 2,
           child: Center(child: AnimatedRotation(turns: turns,
           duration: const Duration(seconds: 1),
