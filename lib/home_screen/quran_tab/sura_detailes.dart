@@ -2,7 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:isami_app/mytheme.dart';
+import 'package:provider/provider.dart';
 
+import '../../provider/app_config_provider.dart';
 import 'itemsuradetaiilsscren.dart';
 
 class SuraDetails extends StatefulWidget {
@@ -20,6 +22,7 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgs;
 
     if(versus.isEmpty){
@@ -28,12 +31,18 @@ class _SuraDetailsState extends State<SuraDetails> {
 
     return
       Stack(children: [
-      Image.asset(
-        'assets/images/background.png',
-        width: double.infinity,
-        height: double.infinity,
-        fit: BoxFit.fill,
-      ),
+        provider.isDarkMode()? Image.asset(
+          'assets/images/darkbackGround.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.fill,
+        ):
+        Image.asset(
+          'assets/images/background.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.fill,
+        ),
       Scaffold(
         appBar: AppBar(
           title: Text(
@@ -57,7 +66,8 @@ class _SuraDetailsState extends State<SuraDetails> {
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: Colors.white
+            color: provider.isDarkMode()?
+            MyTheme.primaryDark:Colors.white,
           ),
           child: ListView.separated(
               itemBuilder: (context, index) {

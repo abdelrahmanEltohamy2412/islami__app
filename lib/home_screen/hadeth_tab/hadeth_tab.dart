@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:isami_app/home_screen/hadeth_tab/itemhadithname.dart';
 import 'package:isami_app/mytheme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
-import '../quran_tab/itemsuraname.dart';
-import '../quran_tab/sura-names.dart';
+import '../../provider/app_config_provider.dart';
+
 
 class HadithTap extends StatefulWidget {
    const HadithTap({super.key});
@@ -19,6 +21,7 @@ class _HadithTapState extends State<HadithTap> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     if(ahdithList.isEmpty){
       loadFile();
     }
@@ -29,22 +32,24 @@ class _HadithTapState extends State<HadithTap> {
         children: [
           Center(child: Image.asset('assets/images/hadith_image.png')),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: provider.isDarkMode()?
+            MyTheme.yellowColor:MyTheme.primaryLight,
             width: double.infinity,
-            height: 1,
+            height: 2,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16),
             child: Center(
                 child: Text(
-                  'Hadith Name',
+                  AppLocalizations.of(context)!.hadith_name,
                   style: Theme.of(context).textTheme.titleMedium,
                 )),
           ),
           Container(
-            color: Theme.of(context).primaryColor,
+            color: provider.isDarkMode()?
+            MyTheme.yellowColor:MyTheme.primaryLight,
             width: double.infinity,
-            height: 1,
+            height: 2,
           ),ahdithList.isEmpty?Center(
             child: CircularProgressIndicator(
               color: MyTheme.primaryLight
@@ -57,7 +62,8 @@ class _HadithTapState extends State<HadithTap> {
               },
               separatorBuilder: (BuildContext context, int index) {
                 return  Container(
-                  color: Theme.of(context).primaryColor,
+                  color: provider.isDarkMode()?
+                  MyTheme.yellowColor:MyTheme.primaryLight,
                   width: double.infinity,
                   height: 1,
                 );
