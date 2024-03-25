@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:isami_app/home_screen/hadeth_tab/hadith_detailes.dart';
 import 'package:isami_app/home_screen/home-screen.dart';
 import 'package:isami_app/home_screen/quran_tab/sura_detailes.dart';
 import 'package:isami_app/mytheme.dart';
+
 
 
 void main() {
@@ -20,6 +22,8 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routName :(context)=>const HomeScreen(),
         SuraDetails.routeName :(context)=>  const SuraDetails(),
+        HadithDetails.routeName :(context)=> const HadithDetails()
+
 
       },
 
