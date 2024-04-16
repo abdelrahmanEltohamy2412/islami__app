@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: AppLocalizations.of(context)!.radio),
 
                  BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
+                    icon: const Icon(Icons.settings),
                     label: AppLocalizations.of(context)!.settings),
 
 
